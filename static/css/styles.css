@@ -31,8 +31,6 @@ body {
     width: 1000px;
 }
 
-audio{
-        min-width: 400px;
-        height: auto;
-        object-fit: inherit;
+audio {
+    width: 500px;
 }
