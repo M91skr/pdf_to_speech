@@ -1,0 +1,38 @@
+body {
+    background-color: #E9B384;
+    text-align: center;
+    text-indent: 15px;
+    font-family: Garamond, Times New Roman, sans-serif;
+    color: #58756f;
+}
+
+.title {
+    padding: 20px;
+    font-size: 4.8rem;
+}
+
+.form-control {
+    width: 1000px;
+    margin: 0px 0px 20px 20px;
+}
+
+.form-label {
+    font-size: 1.8rem;
+    margin: 0px 0px 20px 30px;
+}
+
+.btn {
+    margin: 0px 0px 20px 30px;
+}
+
+.content {
+    font-size: 1.8rem;
+    margin: 0px 0px 20px 30px;
+    width: 1000px;
+}
+
+audio{
+        min-width: 400px;
+        height: auto;
+        object-fit: inherit;
+}
