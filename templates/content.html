@@ -18,18 +18,18 @@
     <h1 class="title">PDF Content:</h1>
     <section class="Header">
         <div class="container-fluid">
+            {% for page, voice in my_lists: %}
             <div class="row">
-                {% for page, voice in my_lists: %}
                 <h2>New page:</h2>
-                <p class="content">{{page}}</p><br>
-                <p>{{voice}}</p><br>
+                <p class="content">{{page}}</p>
+                <p>{{voice}}</p>
                 <div class="col-sm-4 col-sm-offset-4">
                     <audio controls>
                         <source src="{{voice}}">
-                    </audio>
+                    </audio><hr/>
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
         </div>
     </section>
 </body>
