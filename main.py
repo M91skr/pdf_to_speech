@@ -5,7 +5,7 @@ The text is extracted and read to the user.
 
 """
 
-from flask import Flask, render_template, request, redirect, flash, url_for
+from flask import Flask, render_template, request, redirect, flash, url_for, send_file
 from werkzeug.utils import secure_filename
 from PyPDF2 import PdfReader
 from gtts import gTTS
@@ -58,8 +58,8 @@ def displayـcontent(name):
             content = pageobj.extract_text()
             content_list.append(content)
             myobj = gTTS(text=content, lang=language, slow=False)
-            file_name = f'{UPLOAD_AUDIO}/content-{page.numerator}.mp3'
-            myobj.save(file_name)
+            file_name = f'content-{page.numerator}.mp3'
+            myobj.save(f'{UPLOAD_AUDIO}/{file_name}')
             audio_list.append(file_name)
     return render_template("content.html", my_lists=zip(content_list, audio_list))
 
@@ -71,6 +71,14 @@ def text_to_speach():
         myobj = gTTS(text=data['txt'], lang=language, slow=False)
         myobj.save("welcome.mp3")
         os.system("mpg321 welcome.mp3")
+
+
+@app.route('/path/<file_name>')
+def voice_path(file_name):
+    return send_file(
+        f'{UPLOAD_AUDIO}/{file_name}',
+        mimetype="audio/wav",
+        as_attachment=True)
 
 
 if __name__ == '__main__':
